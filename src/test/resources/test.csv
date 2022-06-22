@@ -1,0 +1,6 @@
+Action,Time,ISIN,Ticker,Name,No. of shares,Price / share,Currency (Price / share),Exchange rate,Result (EUR),Total (EUR),Withholding tax,Currency (Withholding tax),Charge amount (EUR),Stamp duty reserve tax (EUR),Notes,ID,Currency conversion fee (EUR)
+Deposit,2021-01-03 08:17:58,,,,,,,,,50.00,,,50.00,,"Transaction ID: 1326096618778918",9c0cbbd6-4b5c-4d03-9e6e-b6792251801d,
+Market buy,2021-01-04 08:00:04,DE0005190037,BMW3,"BMW - Preferred stock",0.0480780000,55.95,EUR,1.00000,,2.69,,,,,,EOF733608676,
+Dividend (Return of capital),2021-01-05 15:39:18,US0925331086,BKCC,"BlackRock Capital Investment ",3.0000000000,0.08,USD,Not available,,0.18,0.00,USD,,,,,
+Dividend (Ordinary),2021-01-05 15:40:14,US0925331086,BKCC,"BlackRock Capital Investment ",3.0000000000,0.02,USD,Not available,,0.05,0.01,USD,,,,,
+Market sell,2021-02-02 14:44:21,CA09228F1036,BB,"BlackBerry",2.2025930000,13.22,USD,1.20304,-2.20,24.20,,,,,,EOF957389790,
