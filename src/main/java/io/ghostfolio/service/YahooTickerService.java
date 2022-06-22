@@ -35,17 +35,16 @@ public class YahooTickerService {
                 .body()
                 .quotes()
                 .stream()
-                .filter(quote -> quote.symbol().equals(symbol) || (symbol.endsWith(".") ? quote.symbol().startsWith(symbol) : quote.symbol().startsWith(symbol + ".")) || (quote.longname() != null && quote.longname().contains(name)))
+                .filter(quote -> quoteSymbolIsRelevant(symbol, name, quote))
                 .collect(toList());
 
-        //if (possibleSymbols.isEmpty()) {
         possibleSymbols.addAll(yahooFinanceClient.findSymbol(name)
                 .body()
                 .quotes()
                 .stream()
-                .filter(quote -> quote.symbol().equals(symbol) || (symbol.endsWith(".") ? quote.symbol().startsWith(symbol) : quote.symbol().startsWith(symbol + ".")) || (quote.longname() != null && quote.longname().contains(name)))
+                .filter(quote -> quoteSymbolIsRelevant(symbol, name, quote))
                 .collect(toList()));
-        //}
+
         return possibleSymbols.stream()
                 .distinct()
                 .map(quote -> yahooFinanceClient.getInfoForSymbol(quote.symbol()))
@@ -59,5 +58,9 @@ public class YahooTickerService {
                     commands.set(symbol + currency, yahooFinanceMetaResponse.symbol());
                     return yahooFinanceMetaResponse.symbol();
                 }).orElseThrow(() -> new IllegalStateException(String.format("No Ticker found for Symbol %s and currency %s", symbol, currency)));
+    }
+
+    private boolean quoteSymbolIsRelevant(String symbol, String name, YahooFinanceQuoteResponse quote) {
+        return quote.symbol().equals(symbol) || (symbol.endsWith(".") ? quote.symbol().startsWith(symbol) : quote.symbol().startsWith(symbol + ".")) || (quote.longname() != null && quote.longname().contains(name));
     }
 }

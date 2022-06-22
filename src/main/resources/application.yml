@@ -13,3 +13,7 @@ redis:
   uri: redis://localhost
   io-thread-pool-size: 5
   computation-thread-pool-size: 4
+
+rabbitmq:
+  host: localhost
+  port: 5672

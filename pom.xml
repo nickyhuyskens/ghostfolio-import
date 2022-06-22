@@ -95,12 +95,14 @@
       <scope>test</scope>
     </dependency>
 
-
     <dependency>
       <groupId>io.micronaut.redis</groupId>
       <artifactId>micronaut-redis-lettuce</artifactId>
     </dependency>
-
+    <dependency>
+      <groupId>io.micronaut.rabbitmq</groupId>
+      <artifactId>micronaut-rabbitmq</artifactId>
+    </dependency>
 
   </dependencies>
 
