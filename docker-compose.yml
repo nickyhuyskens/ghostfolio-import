@@ -9,7 +9,8 @@ services:
     volumes:
       - ./redis:/data
   rabbitmq:
-    image: rabbitmq:3.10.5
+    image: rabbitmq:3.10.5-management
     ports:
       - 5672:5672
+      - 15672:15672
 

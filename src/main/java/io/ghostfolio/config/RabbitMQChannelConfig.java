@@ -15,7 +15,10 @@ public class RabbitMQChannelConfig extends ChannelInitializer {
     public void initialize(Channel channel, String name) throws IOException {
         Map<String, Object> args = new HashMap<>();
         args.put("x-max-priority", 100);
-        channel.queueDeclare("row", false, false, false, args);
+        channel.exchangeDeclare("topic.rows", "topic", false);
+        channel.queueDeclare("queue.rows", false, false, false, args);
+
+        channel.queueBind("queue.rows", "topic.rows", "#");
     }
 
 }
