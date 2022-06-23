@@ -61,7 +61,7 @@ public class Trading212PlatformHandler implements PlatformHandler {
         return switch (activity) {
             case "Market buy" -> ActivityType.BUY;
             case "Market sell" -> ActivityType.SELL;
-            case "Dividend (Ordinary)", "Dividend (Demerger)", "Dividend (Return of capital)" -> ActivityType.DIVIDEND;
+            case "Dividend (Ordinary)", "Dividend (Demerger)", "Dividend (Return of capital)", "Dividend (Bonus)", "Dividend (Ordinary manufactured payment)" -> ActivityType.DIVIDEND;
             default -> throw new IllegalArgumentException(String.format("No activity type for activity %s", activity));
         };
     }

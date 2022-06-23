@@ -31,11 +31,13 @@ public class YahooTickerService {
             return resultFromRedis;
         }
 
-        List<YahooFinanceQuoteResponse> possibleSymbols = yahooFinanceClient.findSymbol(symbol)
+        String sanitizedSymbol = symbol.replace("/", "-");
+
+        List<YahooFinanceQuoteResponse> possibleSymbols = yahooFinanceClient.findSymbol(sanitizedSymbol)
                 .body()
                 .quotes()
                 .stream()
-                .filter(quote -> quoteSymbolIsRelevant(symbol, name, quote))
+                .filter(quote -> quoteSymbolIsRelevant(sanitizedSymbol, name, quote))
                 .collect(toList());
 
         possibleSymbols.addAll(yahooFinanceClient.findSymbol(name)

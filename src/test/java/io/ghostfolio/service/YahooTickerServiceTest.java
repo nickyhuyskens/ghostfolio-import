@@ -21,6 +21,7 @@ class YahooTickerServiceTest {
         assertThat(yahooTickerService.getCorrectTicker("RED", "EUR", "Red Electrica Corporacion")).isEqualTo("RED.MC");
         assertThat(yahooTickerService.getCorrectTicker("RDSB", "GBp", "Shell")).isEqualTo("SHEL.L");
         assertThat(yahooTickerService.getCorrectTicker("OR", "EUR", "L'Oreal")).isEqualTo("OR.PA");
+        assertThat(yahooTickerService.getCorrectTicker("CWEN/A", "USD", "Clearway Energy - Class A")).isEqualTo("CWEN-A");
     }
 
 }
